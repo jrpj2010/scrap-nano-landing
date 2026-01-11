@@ -457,7 +457,7 @@
     </div>
   </section>
 
-  <!-- Purchase Section -->
+  <!-- Download Section -->
   <section id="purchase" class="relative py-32 bg-nano-dark overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0">
@@ -469,14 +469,46 @@
       <div class="absolute inset-0 bg-gradient-to-b from-nano-dark via-nano-dark/90 to-nano-dark"></div>
     </div>
 
-    <div class="relative max-w-4xl mx-auto px-6 text-center">
-      <div class="mb-16">
-        <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-4">&lt;PURCHASE&gt;</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">購入</h2>
+    <div class="relative max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-4">&lt;DOWNLOAD&gt;</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">無料ダウンロード</h2>
         <div class="w-24 h-px bg-gradient-to-r from-transparent via-nano-cyan to-transparent mx-auto"></div>
       </div>
 
-      <div class="bg-nano-darker/90 backdrop-blur border border-nano-cyan/30 rounded-2xl p-8 md:p-12">
+      <!-- Send to Kindle Banner -->
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 md:p-12 mb-12 relative overflow-hidden">
+        <!-- Paper Plane Decoration -->
+        <div class="absolute right-8 top-1/2 -translate-y-1/2 opacity-20 hidden md:block">
+          <svg class="w-32 h-32 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+          <div class="flex-1">
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Send to Kindle</h3>
+            <p class="text-blue-100 text-lg mb-2">一度送信すれば、どこでも読める</p>
+            <p class="text-blue-200 text-sm">Kindleアプリ・Kindle端末で快適に読書を楽しめます</p>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a
+              href="assets/スクラップ・ナノの逆襲.epub"
+              download="スクラップ・ナノの逆襲.epub"
+              class="group bg-white text-blue-700 font-bold text-lg px-8 py-4 rounded-lg hover:bg-blue-50 transition-all hover:scale-105 flex items-center gap-3 shadow-lg"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              EPUBをダウンロード
+            </a>
+            <span class="text-blue-200 text-sm text-center">約38MB / 挿絵30点収録</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book Info Card -->
+      <div class="bg-nano-darker/90 backdrop-blur border border-nano-cyan/30 rounded-2xl p-8 md:p-12 mb-12">
         <div class="flex flex-col md:flex-row items-center gap-12">
           <!-- Book Cover -->
           <div class="relative flex-shrink-0">
@@ -499,29 +531,152 @@
 
             <div class="space-y-3 mb-8">
               <div class="flex items-center gap-4">
-                <span class="font-display text-nano-cyan text-sm w-20">FORMAT</span>
-                <span class="text-white">Kindle / EPUB</span>
+                <span class="font-display text-nano-cyan text-sm w-24">FORMAT</span>
+                <span class="text-white">EPUB（Kindle対応）</span>
               </div>
               <div class="flex items-center gap-4">
-                <span class="font-display text-nano-cyan text-sm w-20">LENGTH</span>
+                <span class="font-display text-nano-cyan text-sm w-24">LENGTH</span>
                 <span class="text-white">約65,000文字</span>
               </div>
               <div class="flex items-center gap-4">
-                <span class="font-display text-nano-cyan text-sm w-20">CHAPTERS</span>
+                <span class="font-display text-nano-cyan text-sm w-24">CHAPTERS</span>
                 <span class="text-white">全3章 15パート + エピローグ</span>
               </div>
+              <div class="flex items-center gap-4">
+                <span class="font-display text-nano-cyan text-sm w-24">IMAGES</span>
+                <span class="text-white">挿絵30点（フルカラー）</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="font-display text-nano-cyan text-sm w-24">PRICE</span>
+                <span class="text-nano-green font-bold text-lg">無料</span>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="#" class="group relative bg-nano-cyan text-nano-dark font-bold text-lg px-8 py-4 rounded overflow-hidden cursor-pointer transition-transform hover:scale-105 text-center">
-                <span class="relative z-10 flex items-center justify-center gap-2">
-                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M21.5 3.5H2.5v17h19v-17zm-7 5h-5v7h5v-7z"/>
-                  </svg>
-                  Amazon Kindleで購入
-                </span>
-                <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </a>
+      <!-- How to Send to Kindle Guide -->
+      <div class="bg-nano-darker/90 backdrop-blur border border-nano-cyan/30 rounded-2xl p-8 md:p-12">
+        <div class="text-center mb-10">
+          <h3 class="text-2xl font-bold text-white mb-2">Kindleで読む方法</h3>
+          <p class="text-gray-400">初めての方でも簡単！3つの方法から選べます</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Method 1: Send to Kindle Web -->
+          <div class="bg-nano-dark/50 border border-nano-cyan/20 rounded-xl p-6 hover:border-nano-cyan/50 transition-colors">
+            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+              </svg>
+            </div>
+            <div class="font-display text-nano-cyan text-sm mb-2">METHOD_01</div>
+            <h4 class="text-lg font-bold text-white mb-3">Send to Kindle（Web）</h4>
+            <p class="text-gray-400 text-sm mb-4">ブラウザから直接送信。最も簡単な方法です。</p>
+            <ol class="text-sm text-gray-300 space-y-2">
+              <li class="flex gap-2">
+                <span class="text-nano-cyan font-bold">1.</span>
+                <span>上のボタンでEPUBをダウンロード</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-nano-cyan font-bold">2.</span>
+                <span><a href="https://www.amazon.co.jp/sendtokindle" target="_blank" class="text-nano-cyan hover:underline">amazon.co.jp/sendtokindle</a> を開く</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-nano-cyan font-bold">3.</span>
+                <span>ダウンロードしたEPUBをドラッグ＆ドロップ</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-nano-cyan font-bold">4.</span>
+                <span>送信先デバイスを選んで送信！</span>
+              </li>
+            </ol>
+            <a href="https://www.amazon.co.jp/sendtokindle" target="_blank" class="mt-4 inline-block text-nano-cyan hover:text-white transition-colors text-sm">
+              → Send to Kindle を開く
+            </a>
+          </div>
+
+          <!-- Method 2: Email -->
+          <div class="bg-nano-dark/50 border border-nano-magenta/20 rounded-xl p-6 hover:border-nano-magenta/50 transition-colors">
+            <div class="w-12 h-12 bg-nano-magenta rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div class="font-display text-nano-magenta text-sm mb-2">METHOD_02</div>
+            <h4 class="text-lg font-bold text-white mb-3">メールで送信</h4>
+            <p class="text-gray-400 text-sm mb-4">自分のKindleメールアドレスに送信する方法です。</p>
+            <ol class="text-sm text-gray-300 space-y-2">
+              <li class="flex gap-2">
+                <span class="text-nano-magenta font-bold">1.</span>
+                <span><a href="https://www.amazon.co.jp/hz/mycd/myx#/home/settings/payment" target="_blank" class="text-nano-magenta hover:underline">Amazon設定</a>でKindleメールを確認</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-nano-magenta font-bold">2.</span>
+                <span>承認済みメールから送信設定も確認</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-nano-magenta font-bold">3.</span>
+                <span>EPUBを添付してメール送信</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-nano-magenta font-bold">4.</span>
+                <span>数分でKindleライブラリに届きます</span>
+              </li>
+            </ol>
+            <p class="mt-4 text-gray-500 text-xs">
+              ※ 送信元メールの事前登録が必要です
+            </p>
+          </div>
+
+          <!-- Method 3: Direct Transfer -->
+          <div class="bg-nano-dark/50 border border-nano-green/20 rounded-xl p-6 hover:border-nano-green/50 transition-colors">
+            <div class="w-12 h-12 bg-nano-green rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-nano-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div class="font-display text-nano-green text-sm mb-2">METHOD_03</div>
+            <h4 class="text-lg font-bold text-white mb-3">スマホで直接読む</h4>
+            <p class="text-gray-400 text-sm mb-4">Kindleアプリで直接開く方法です。</p>
+            <ol class="text-sm text-gray-300 space-y-2">
+              <li class="flex gap-2">
+                <span class="text-nano-green font-bold">1.</span>
+                <span>スマホに<a href="https://apps.apple.com/jp/app/kindle/id302584613" target="_blank" class="text-nano-green hover:underline">Kindleアプリ</a>をインストール</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-nano-green font-bold">2.</span>
+                <span>このページでEPUBをダウンロード</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-nano-green font-bold">3.</span>
+                <span>「共有」→「Kindleで開く」を選択</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-nano-green font-bold">4.</span>
+                <span>すぐに読書開始！</span>
+              </li>
+            </ol>
+            <p class="mt-4 text-gray-500 text-xs">
+              ※ iOS/Androidどちらも対応
+            </p>
+          </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="mt-10 p-6 bg-nano-cyan/10 border border-nano-cyan/30 rounded-xl">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-nano-cyan/20 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-nano-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-white font-bold mb-1">おすすめは「Send to Kindle（Web）」</h4>
+              <p class="text-gray-400 text-sm">
+                Amazonアカウントでログインするだけで、PC・スマホ・Kindle端末すべてに自動同期されます。
+                一番簡単で確実な方法です！
+              </p>
             </div>
           </div>
         </div>
