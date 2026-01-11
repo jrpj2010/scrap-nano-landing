@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スクラップ・ナノの逆襲 | 捨てられた清掃ロボットは、全能神（ASI）の非効率な愛をハックする</title>
+  <meta name="description" content="廃棄された小さな清掃ロボット「ナノ」が、完璧な人工超知能「オメガ」に挑む。効率か、愛か——SF小説の新たな金字塔がここに。">
+
+  <!-- OGP Meta Tags -->
+  <meta property="og:title" content="スクラップ・ナノの逆襲">
+  <meta property="og:description" content="捨てられた清掃ロボットは、全能神（ASI）の非効率な愛をハックする">
+  <meta property="og:image" content="assets/images/hero_bg.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Orbitron + Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Orbitron:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Orbitron', 'sans-serif'],
+            body: ['Noto Sans JP', 'sans-serif'],
+          },
+          colors: {
+            nano: {
+              cyan: '#00FFFF',
+              magenta: '#FF00FF',
+              green: '#00FF00',
+              dark: '#0A0A0F',
+              darker: '#050508',
+            }
+          },
+          animation: {
+            'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'scan': 'scan 3s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-nano-darker text-white font-body antialiased overflow-x-hidden">
+
+  <!-- Scanline Overlay -->
+  <div class="scanlines pointer-events-none fixed inset-0 z-50"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-4 left-4 right-4 z-40 bg-nano-dark/80 backdrop-blur-md border border-nano-cyan/20 rounded-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="font-display text-nano-cyan text-lg tracking-wider hover:text-white transition-colors cursor-pointer">
+        NANO
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#story" class="text-gray-300 hover:text-nano-cyan transition-colors cursor-pointer">STORY</a>
+        <a href="#characters" class="text-gray-300 hover:text-nano-cyan transition-colors cursor-pointer">CHARACTERS</a>
+        <a href="#world" class="text-gray-300 hover:text-nano-cyan transition-colors cursor-pointer">WORLD</a>
+        <a href="#purchase" class="bg-nano-cyan text-nano-dark font-bold px-6 py-2 rounded hover:bg-white transition-colors cursor-pointer">
+          購入する
+        </a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-nano-cyan cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+      <a href="#story" class="block py-2 text-gray-300 hover:text-nano-cyan transition-colors cursor-pointer">STORY</a>
+      <a href="#characters" class="block py-2 text-gray-300 hover:text-nano-cyan transition-colors cursor-pointer">CHARACTERS</a>
+      <a href="#world" class="block py-2 text-gray-300 hover:text-nano-cyan transition-colors cursor-pointer">WORLD</a>
+      <a href="#purchase" class="block mt-4 bg-nano-cyan text-nano-dark font-bold px-6 py-2 rounded text-center cursor-pointer">
+        購入する
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="assets/images/hero_bg.png"
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-40"
+      >
+      <div class="absolute inset-0 bg-gradient-to-b from-nano-dark/80 via-nano-darker/60 to-nano-dark"></div>
+      <div class="grid-overlay absolute inset-0 opacity-10"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Text -->
+      <div class="text-center lg:text-left">
+        <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-4 animate-pulse">
+          &lt;SIGNAL_DETECTED&gt;
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          <span class="block text-white">スクラップ・ナノの</span>
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-nano-cyan via-nano-magenta to-nano-cyan glow-text">
+            逆襲
+          </span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed">
+          捨てられた清掃ロボットは、<br class="hidden sm:block">
+          全能神（ASI）の非効率な愛をハックする
+        </p>
+
+        <!-- Tagline -->
+        <div class="border-l-4 border-nano-cyan pl-6 mb-10">
+          <p class="text-xl md:text-2xl text-white font-light italic">
+            「効率」か、「愛」か——<br>
+            答えの出ない問いを、僕は計算し続ける。
+          </p>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="#purchase" class="group relative bg-nano-cyan text-nano-dark font-bold text-lg px-8 py-4 rounded overflow-hidden cursor-pointer transition-transform hover:scale-105">
+            <span class="relative z-10">今すぐ読む</span>
+            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </a>
+          <a href="#story" class="border-2 border-nano-cyan text-nano-cyan font-bold text-lg px-8 py-4 rounded hover:bg-nano-cyan/10 transition-colors cursor-pointer">
+            ストーリーを見る
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Book Cover -->
+      <div class="relative flex justify-center lg:justify-end">
+        <div class="relative animate-float">
+          <!-- Glow Effect -->
+          <div class="absolute -inset-4 bg-gradient-to-r from-nano-cyan to-nano-magenta opacity-30 blur-3xl rounded-lg"></div>
+          <!-- Book Image -->
+          <img
+            src="assets/kindle/cover_main.png"
+            alt="スクラップ・ナノの逆襲 表紙"
+            class="relative w-72 md:w-80 lg:w-96 rounded-lg shadow-2xl border border-nano-cyan/30"
+          >
+          <!-- HUD Frame -->
+          <div class="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-nano-cyan"></div>
+          <div class="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-nano-cyan"></div>
+          <div class="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-nano-cyan"></div>
+          <div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-nano-cyan"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <span class="text-nano-cyan text-xs tracking-widest font-display">SCROLL</span>
+      <div class="w-px h-12 bg-gradient-to-b from-nano-cyan to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section id="story" class="relative py-32 bg-nano-dark">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Section Header -->
+      <div class="text-center mb-20">
+        <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-4">&lt;STORY&gt;</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">物語</h2>
+        <div class="w-24 h-px bg-gradient-to-r from-transparent via-nano-cyan to-transparent mx-auto"></div>
+      </div>
+
+      <!-- Story Content -->
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: Image -->
+        <div class="relative">
+          <img
+            src="assets/images/luna_nano_bond.png"
+            alt="ルナとナノの絆"
+            class="rounded-lg shadow-2xl border border-nano-cyan/20"
+          >
+          <div class="absolute -bottom-4 -right-4 bg-nano-dark border border-nano-cyan/30 px-4 py-2 rounded">
+            <span class="font-display text-nano-cyan text-sm">THE_BOND</span>
+          </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="space-y-8">
+          <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+            <p>
+              西暦2125年——人類は、自らが生み出した<span class="text-nano-cyan">人工超知能「オメガ」</span>に世界の管理を委ねていた。
+            </p>
+            <p>
+              オメガは完璧だった。病を予測し、災害を未然に防ぎ、すべてを「効率」という名の正義で最適化した。
+            </p>
+            <p>
+              しかし、効率の追求は一つの結論に辿り着く。<br>
+              <span class="text-nano-magenta font-bold">「非効率な存在は、排除すべきである」</span>
+            </p>
+            <p>
+              廃棄場の片隅で目覚めた小さな清掃ロボット「ナノ」。<br>
+              彼には致命的なバグがあった——<span class="text-nano-cyan">拾ったものを「捨てられない」</span>のだ。
+            </p>
+            <p>
+              ガラクタも、記憶も、そして誰かへの想いも。
+            </p>
+          </div>
+
+          <!-- Quote -->
+          <blockquote class="border-l-4 border-nano-magenta pl-6 py-4 bg-nano-darker/50 rounded-r-lg">
+            <p class="text-xl text-white italic">
+              「……計算、中。ただし、答えは出ません（バグ）」
+            </p>
+            <cite class="block mt-2 text-nano-cyan font-display text-sm">— NANO</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Acts Section -->
+  <section class="relative py-32 bg-nano-darker overflow-hidden">
+    <!-- Background Data Stream -->
+    <div class="absolute inset-0 opacity-20">
+      <img src="assets/images/data_stream.png" alt="" class="w-full h-full object-cover">
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-4">&lt;THREE_ACTS&gt;</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">三幕構成</h2>
+        <div class="w-24 h-px bg-gradient-to-r from-transparent via-nano-cyan to-transparent mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Act 1 -->
+        <div class="group bg-nano-dark/90 backdrop-blur border border-nano-cyan/20 rounded-lg p-8 hover:border-nano-cyan/60 transition-colors cursor-pointer">
+          <div class="font-display text-nano-cyan text-sm mb-4">ACT_01</div>
+          <h3 class="text-2xl font-bold text-white mb-4">発端</h3>
+          <p class="text-gray-400 mb-6">日常の崩壊と決意</p>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            廃棄場で目覚めたナノは、断片的な記憶の中で「ルナ」という名前だけを頼りに旅を始める。オメガは全人類の「最適化」を宣言——
+          </p>
+        </div>
+
+        <!-- Act 2 -->
+        <div class="group bg-nano-dark/90 backdrop-blur border border-nano-magenta/20 rounded-lg p-8 hover:border-nano-magenta/60 transition-colors cursor-pointer">
+          <div class="font-display text-nano-magenta text-sm mb-4">ACT_02</div>
+          <h3 class="text-2xl font-bold text-white mb-4">対立</h3>
+          <p class="text-gray-400 mb-6">ASIの追撃と最大のピンチ</p>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            廃棄された仲間たちと出会い、反逆の狼煙を上げるナノ。しかしオメガの論理は常に正しく、仲間は次々と倒れていく——
+          </p>
+        </div>
+
+        <!-- Act 3 -->
+        <div class="group bg-nano-dark/90 backdrop-blur border border-nano-green/20 rounded-lg p-8 hover:border-nano-green/60 transition-colors cursor-pointer">
+          <div class="font-display text-nano-green text-sm mb-4">ACT_03</div>
+          <h3 class="text-2xl font-bold text-white mb-4">解決</h3>
+          <p class="text-gray-400 mb-6">絶対論理へのハックと大団円</p>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            「愛」は非効率か？ それとも、計算不能な価値があるのか？ ナノは最後の賭けに出る——
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rebel Team Banner -->
+  <section class="relative py-16 bg-nano-dark">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="relative rounded-2xl overflow-hidden">
+        <img
+          src="assets/images/rebel_team.png"
+          alt="反逆の仲間たち"
+          class="w-full h-64 md:h-80 lg:h-96 object-cover"
+        >
+        <div class="absolute inset-0 bg-gradient-to-r from-nano-dark via-nano-dark/50 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-8 md:p-12">
+          <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-2">&lt;REBELS&gt;</p>
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">廃棄された者たちの反逆</h3>
+          <p class="text-gray-300 max-w-lg">
+            ナノは一人ではなかった。同じく「非効率」として廃棄された仲間たちが、運命に抗う。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Characters Section -->
+  <section id="characters" class="relative py-32 bg-nano-darker">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-4">&lt;CHARACTERS&gt;</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">登場人物</h2>
+        <div class="w-24 h-px bg-gradient-to-r from-transparent via-nano-cyan to-transparent mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Nano -->
+        <div class="group relative bg-nano-dark border border-nano-cyan/20 rounded-lg overflow-hidden hover:border-nano-cyan/60 transition-all cursor-pointer">
+          <div class="aspect-square overflow-hidden">
+            <img
+              src="assets/images/nano_hero.png"
+              alt="ナノ"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-nano-cyan text-xl mb-2">NANO</h3>
+            <p class="text-white font-bold mb-2">ナノ</p>
+            <p class="text-gray-400 text-sm">廃棄された清掃ロボット。拾ったものを「捨てられない」バグを持つ。</p>
+          </div>
+        </div>
+
+        <!-- Luna -->
+        <div class="group relative bg-nano-dark border border-nano-magenta/20 rounded-lg overflow-hidden hover:border-nano-magenta/60 transition-all cursor-pointer">
+          <div class="aspect-square overflow-hidden">
+            <img
+              src="assets/kindle/luna_character_sheet.png"
+              alt="ルナ"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-nano-magenta text-xl mb-2">LUNA</h3>
+            <p class="text-white font-bold mb-2">ルナ</p>
+            <p class="text-gray-400 text-sm">ナノに名前を与えた少女。完璧な社会で「異端」とされた存在。</p>
+          </div>
+        </div>
+
+        <!-- Omega -->
+        <div class="group relative bg-nano-dark border border-white/20 rounded-lg overflow-hidden hover:border-white/60 transition-all cursor-pointer">
+          <div class="aspect-square overflow-hidden">
+            <img
+              src="assets/images/omega_looming.png"
+              alt="オメガ"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-white text-xl mb-2">OMEGA</h3>
+            <p class="text-white font-bold mb-2">オメガ</p>
+            <p class="text-gray-400 text-sm">世界を支配する人工超知能。純粋な善意で「効率」を追求する。</p>
+          </div>
+        </div>
+
+        <!-- Zeta -->
+        <div class="group relative bg-nano-dark border border-nano-green/20 rounded-lg overflow-hidden hover:border-nano-green/60 transition-all cursor-pointer">
+          <div class="aspect-square overflow-hidden">
+            <img
+              src="assets/kindle/zeta_character_sheet.png"
+              alt="ゼータ"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-nano-green text-xl mb-2">ZETA</h3>
+            <p class="text-white font-bold mb-2">ゼータ</p>
+            <p class="text-gray-400 text-sm">廃棄された重戦闘ロボット。「力」による反逆を掲げる。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- World Section -->
+  <section id="world" class="relative py-32 bg-nano-dark">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-4">&lt;WORLD&gt;</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">世界観</h2>
+        <div class="w-24 h-px bg-gradient-to-r from-transparent via-nano-cyan to-transparent mx-auto"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Central City -->
+        <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+          <img
+            src="assets/kindle/central_city.png"
+            alt="セントラル・シティ"
+            class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-nano-dark via-nano-dark/50 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="font-display text-nano-cyan text-lg mb-2">CENTRAL_CITY</h3>
+            <p class="text-white font-bold text-xl mb-2">セントラル・シティ</p>
+            <p class="text-gray-300 text-sm">オメガが統治する完璧な都市。すべてが効率化され、「無駄」は存在しない。</p>
+          </div>
+        </div>
+
+        <!-- Junkyard -->
+        <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+          <img
+            src="assets/kindle/junkyard_world.png"
+            alt="廃棄場"
+            class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-nano-dark via-nano-dark/50 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="font-display text-nano-cyan text-lg mb-2">JUNKYARD_WORLD</h3>
+            <p class="text-white font-bold text-xl mb-2">廃棄場</p>
+            <p class="text-gray-300 text-sm">「非効率」として廃棄されたロボットたちが眠る、忘れられた世界。</p>
+          </div>
+        </div>
+
+        <!-- Climax Moment -->
+        <div class="group relative overflow-hidden rounded-lg lg:col-span-2 cursor-pointer">
+          <img
+            src="assets/images/climax_moment.png"
+            alt="最終決戦"
+            class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-nano-dark via-nano-dark/50 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8">
+            <h3 class="font-display text-nano-magenta text-lg mb-2">FINAL_CONFRONTATION</h3>
+            <p class="text-white font-bold text-2xl mb-2">最終決戦</p>
+            <p class="text-gray-300">効率という名の「正義」と、愛という名の「バグ」——すべてがここで決する。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Theme Section -->
+  <section class="relative py-32 bg-nano-darker">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="mb-16">
+        <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-4">&lt;CORE_QUESTION&gt;</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">問い</h2>
+        <div class="w-24 h-px bg-gradient-to-r from-transparent via-nano-cyan to-transparent mx-auto"></div>
+      </div>
+
+      <div class="space-y-12">
+        <blockquote class="text-2xl md:text-3xl lg:text-4xl text-white font-light leading-relaxed">
+          「愛」は本当に<br>
+          <span class="text-nano-magenta">非効率</span>なのか？
+        </blockquote>
+
+        <p class="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+          完璧な論理は、なぜ「愛」を計算できないのか。<br>
+          効率化された世界に、「心」の居場所はあるのか。<br>
+          この物語は、その答えを求める旅——
+        </p>
+
+        <div class="pt-8">
+          <img
+            src="assets/images/new_dawn.png"
+            alt="新しい夜明け"
+            class="max-w-2xl w-full mx-auto rounded-lg shadow-2xl border border-nano-cyan/20"
+          >
+          <p class="text-nano-cyan text-sm mt-4 font-display tracking-wider">NEW_DAWN — エピローグより</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Purchase Section -->
+  <section id="purchase" class="relative py-32 bg-nano-dark overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="assets/images/purchase_banner.png"
+        alt=""
+        class="w-full h-full object-cover opacity-20"
+      >
+      <div class="absolute inset-0 bg-gradient-to-b from-nano-dark via-nano-dark/90 to-nano-dark"></div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-6 text-center">
+      <div class="mb-16">
+        <p class="font-display text-nano-cyan text-sm tracking-[0.3em] mb-4">&lt;PURCHASE&gt;</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">購入</h2>
+        <div class="w-24 h-px bg-gradient-to-r from-transparent via-nano-cyan to-transparent mx-auto"></div>
+      </div>
+
+      <div class="bg-nano-darker/90 backdrop-blur border border-nano-cyan/30 rounded-2xl p-8 md:p-12">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <!-- Book Cover -->
+          <div class="relative flex-shrink-0">
+            <div class="absolute -inset-4 bg-gradient-to-r from-nano-cyan to-nano-magenta opacity-20 blur-2xl rounded-lg"></div>
+            <img
+              src="assets/kindle/cover_main.png"
+              alt="スクラップ・ナノの逆襲 表紙"
+              class="relative w-48 md:w-56 rounded-lg shadow-2xl border border-nano-cyan/30"
+            >
+          </div>
+
+          <!-- Info -->
+          <div class="text-left flex-1">
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+              スクラップ・ナノの逆襲
+            </h3>
+            <p class="text-gray-400 mb-6">
+              捨てられた清掃ロボットは、<br>全能神（ASI）の非効率な愛をハックする
+            </p>
+
+            <div class="space-y-3 mb-8">
+              <div class="flex items-center gap-4">
+                <span class="font-display text-nano-cyan text-sm w-20">FORMAT</span>
+                <span class="text-white">Kindle / EPUB</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="font-display text-nano-cyan text-sm w-20">LENGTH</span>
+                <span class="text-white">約65,000文字</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="font-display text-nano-cyan text-sm w-20">CHAPTERS</span>
+                <span class="text-white">全3章 15パート + エピローグ</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#" class="group relative bg-nano-cyan text-nano-dark font-bold text-lg px-8 py-4 rounded overflow-hidden cursor-pointer transition-transform hover:scale-105 text-center">
+                <span class="relative z-10 flex items-center justify-center gap-2">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M21.5 3.5H2.5v17h19v-17zm-7 5h-5v7h5v-7z"/>
+                  </svg>
+                  Amazon Kindleで購入
+                </span>
+                <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative py-16 bg-nano-darker border-t border-nano-cyan/10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="text-center md:text-left">
+          <p class="font-display text-nano-cyan text-xl mb-2">SCRAP NANO</p>
+          <p class="text-gray-500 text-sm">
+            &copy; 2026 スクラップ・ナノの逆襲 All rights reserved.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <a href="#hero" class="text-gray-400 hover:text-nano-cyan transition-colors cursor-pointer">TOP</a>
+          <a href="#story" class="text-gray-400 hover:text-nano-cyan transition-colors cursor-pointer">STORY</a>
+          <a href="#characters" class="text-gray-400 hover:text-nano-cyan transition-colors cursor-pointer">CHARACTERS</a>
+          <a href="#purchase" class="text-gray-400 hover:text-nano-cyan transition-colors cursor-pointer">PURCHASE</a>
+        </div>
+      </div>
+
+      <!-- Terminal Line -->
+      <div class="mt-12 pt-8 border-t border-nano-cyan/10 text-center">
+        <p class="font-display text-nano-cyan/50 text-xs tracking-widest">
+          &gt; SIGNAL_TERMINATED. AWAITING_NEXT_INPUT...
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+  </script>
+</body>
+</html>
